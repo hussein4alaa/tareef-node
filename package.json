@@ -1,0 +1,39 @@
+{
+  "name": "tareef",
+  "version": "0.1.0",
+  "description": "Official Node.js SDK for the Tareef face recognition API.",
+  "type": "module",
+  "main": "./src/index.js",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "default": "./src/index.js"
+    }
+  },
+  "files": [
+    "src",
+    "types",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "tareef",
+    "face-recognition",
+    "face-verification",
+    "facial-recognition",
+    "biometrics",
+    "sdk"
+  ],
+  "author": "Tareef",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hussein4alaa/tareef-node"
+  }
+}
