@@ -41,6 +41,20 @@ export interface VerifyResult {
   [key: string]: unknown;
 }
 
+export interface CompareResult {
+  success: boolean;
+  status: string;
+  /** True when the two faces are the same person (per the app's threshold). */
+  match: boolean | null;
+  /** Cosine distance (lower = closer). */
+  distance?: number;
+  /** 1 − distance (1.0 = identical). */
+  similarity?: number;
+  /** The threshold the match decision used. */
+  threshold?: number;
+  [key: string]: unknown;
+}
+
 export interface RegisterResult {
   success: boolean;
   status: string;
@@ -95,6 +109,7 @@ export class TareefClient {
   constructor(options?: TareefOptions);
   register(params: RegisterParams): Promise<RegisterResult>;
   verify(image: ImageInput): Promise<VerifyResult>;
+  compare(imageA: ImageInput, imageB: ImageInput): Promise<CompareResult>;
   addImages(personUuid: string, images: ImageInput | ImageInput[]): Promise<Record<string, unknown>>;
   listPeople(params?: { limit?: number }): Promise<ListPeopleResult>;
   getPerson(personUuid: string): Promise<Person>;

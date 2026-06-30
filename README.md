@@ -71,7 +71,8 @@ new Blob([bytes], { type: 'image/jpeg' })       // Blob / File
 | Method | Description |
 |--------|-------------|
 | `register({ name, phone?, images })` | Enroll a person from one or more photos. |
-| `verify(image)` | Identify a face against your library. |
+| `verify(image)` | Identify a face against your library (1:N). |
+| `compare(imageA, imageB)` | Compare two faces directly (1:1) — no enrollment. |
 | `addImages(personUuid, images)` | Add more reference photos to a person. |
 | `listPeople({ limit? })` | List enrolled people. |
 | `getPerson(personUuid)` | Fetch one person. |
@@ -88,6 +89,17 @@ All methods return the parsed JSON response.
 const r = await tareef.verify('./selfie.jpg');
 // { success: true, status: 'ok', uuid, name, distance, score, samples }
 // or { success: false, status: 'not_identical' | 'no_data' | 'no_face', uuid: null }
+```
+
+### Comparing two faces (1:1)
+
+`compare` measures how similar two images are without enrolling anyone — ideal
+for KYC ("does this selfie match this ID photo?"). `similarity` is `1 − distance`.
+
+```js
+const r = await tareef.compare('./selfie.jpg', './id-photo.jpg');
+// { success: true, match: true, distance: 0.21, similarity: 0.79, threshold: 0.38 }
+if (r.match) console.log(`Same person — ${Math.round(r.similarity * 100)}% similar`);
 ```
 
 ## Errors

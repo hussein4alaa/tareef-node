@@ -50,6 +50,15 @@ test('verify returns the parsed body and sends a bearer token', async () => {
   assert.equal(fetch.calls[0].init.headers.Authorization, 'Bearer secret');
 });
 
+test('compare posts to /compare and returns the match result', async () => {
+  const fetch = stubFetch(200, { success: true, match: true, distance: 0.21, similarity: 0.79 });
+  const c = new TareefClient({ apiKey: 'k', baseUrl: 'https://x', fetch });
+  const r = await c.compare(new Uint8Array([1]), new Uint8Array([2]));
+  assert.equal(r.match, true);
+  assert.equal(r.similarity, 0.79);
+  assert.match(fetch.calls[0].url, /\/api\/v1\/compare$/);
+});
+
 test('face_exists -> FaceAlreadyExistsError carrying the uuid', async () => {
   const c = new TareefClient({
     apiKey: 'k',

@@ -73,6 +73,24 @@ export class TareefClient {
   }
 
   /**
+   * Compare two faces directly (1:1) — how similar are these two images?
+   * No enrolment, no library lookup. Great for KYC (selfie vs ID photo).
+   * @param {import('../types/index.js').ImageInput} imageA
+   * @param {import('../types/index.js').ImageInput} imageB
+   * @returns {Promise<import('../types/index.js').CompareResult>}
+   */
+  async compare(imageA, imageB) {
+    const form = new FormData();
+    form.append('type', 'file');
+    const a = await toBlobPart(imageA);
+    const b = await toBlobPart(imageB);
+    form.append('file1', a.blob, a.filename);
+    form.append('file2', b.blob, b.filename);
+
+    return this._request('POST', '/compare', { form });
+  }
+
+  /**
    * Attach more reference photos to an existing person.
    * @param {string} personUuid
    * @param {import('../types/index.js').ImageInput | import('../types/index.js').ImageInput[]} images
