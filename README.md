@@ -1,9 +1,3 @@
-<p align="center">
-  <a href="https://tareef.g4t.io">
-    <img src="https://github.com/hussein4alaa/tareef-laravel/raw/main/banner.png" alt="Tareef — Face recognition API" width="100%">
-  </a>
-</p>
-
 # @g4t/tareef — Node.js SDK
 
 Official Node.js / TypeScript SDK for the **Tareef** face recognition API. A thin,
