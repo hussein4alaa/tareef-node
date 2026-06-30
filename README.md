@@ -4,7 +4,7 @@
   </a>
 </p>
 
-# tareef — Node.js SDK
+# @g4t/tareef — Node.js SDK
 
 Official Node.js / TypeScript SDK for the **Tareef** face recognition API. A thin,
 typed wrapper over the REST endpoints — multipart uploads, JSON responses, bearer
@@ -18,13 +18,13 @@ auth, and typed errors.
 ## Install
 
 ```bash
-npm install tareef
+npm install @g4t/tareef
 ```
 
 ## Quick start
 
 ```js
-import { TareefClient } from 'tareef';
+import { TareefClient } from '@g4t/tareef';
 
 const tareef = new TareefClient({
   apiKey: process.env.TAREEF_API_KEY,   // frs_live_…
@@ -110,7 +110,7 @@ import {
   NoFaceDetectedError,    // 422 no_face
   FaceAlreadyExistsError, // 422 face_exists (has .uuid of the match)
   ServiceUnavailableError // 5xx / network / timeout
-} from 'tareef';
+} from '@g4t/tareef';
 
 try {
   await tareef.register({ name: 'Jane', images: ['./jane.jpg'] });
@@ -135,10 +135,9 @@ and `.body` (the parsed response).
 The package is ESM-only. From CommonJS, use a dynamic import:
 
 ```js
-const { TareefClient } = await import('tareef');
+const { TareefClient } = await import('@g4t/tareef');
 ```
 
 ## License
 
 MIT
-# tareef-node

@@ -1,5 +1,5 @@
 // Run: TAREEF_BASE_URL=https://your-host TAREEF_API_KEY=frs_live_… node examples/quickstart.mjs
-import { TareefClient, FaceAlreadyExistsError, NoFaceDetectedError } from 'tareef';
+import { TareefClient, FaceAlreadyExistsError, NoFaceDetectedError } from '@g4t/tareef';
 
 const tareef = new TareefClient(); // reads TAREEF_BASE_URL + TAREEF_API_KEY
 

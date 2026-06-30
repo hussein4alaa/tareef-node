@@ -43,5 +43,8 @@
   "bugs": {
     "url": "https://github.com/hussein4alaa/tareef-node/issues"
   },
-  "homepage": "https://github.com/hussein4alaa/tareef-node#readme"
+  "homepage": "https://github.com/hussein4alaa/tareef-node#readme",
+  "dependencies": {
+    "@g4t/tareef": "^0.1.0"
+  }
 }
