@@ -1,5 +1,5 @@
 {
-  "name": "tareef",
+  "name": "@g4t/tareef",
   "version": "0.1.0",
   "description": "Official Node.js SDK for the Tareef face recognition API.",
   "type": "module",
@@ -34,6 +34,14 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hussein4alaa/tareef-node"
-  }
+    "url": "git+https://github.com/hussein4alaa/tareef-node.git"
+  },
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "bugs": {
+    "url": "https://github.com/hussein4alaa/tareef-node/issues"
+  },
+  "homepage": "https://github.com/hussein4alaa/tareef-node#readme"
 }
